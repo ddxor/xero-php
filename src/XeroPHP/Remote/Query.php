@@ -310,4 +310,25 @@ class Query
     {
         return $this->from_class;
     }
+
+    /**
+     * Set a global InvoiceNumbers query string against this request
+     *
+     * @throws Exception
+     *
+     */ 
+    public function setInvoiceNumbers($invoiceNumbers)
+    {
+        if (!is_array($invoiceNumbers)) {
+            throw new Exception('Expected array');
+        }
+
+        if (count($invoiceNumbers) < 1) {
+            return;
+        }
+
+        $invoiceNumbersCSV = implode(',', $invoiceNumbers);
+
+        $this->invoiceNumbers = $invoiceNumbers;
+    }
 }
