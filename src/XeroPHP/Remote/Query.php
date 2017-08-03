@@ -327,9 +327,7 @@ class Query
             return;
         }
 
-        $invoiceNumbersCSV = implode(',', $invoiceNumbers);
-
-        $this->invoiceNumbers = $invoiceNumbers;
+        $this->invoiceNumbers = implode(',', $invoiceNumbers);
 
         return $this;
     }
