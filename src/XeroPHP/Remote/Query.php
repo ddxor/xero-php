@@ -24,6 +24,7 @@ class Query
     private $offset;
     private $includeArchived;
     private $params;
+    private $invoiceNumbers;
 
     public function __construct(Application $app)
     {
@@ -281,6 +282,10 @@ class Query
 
         if ($this->includeArchived !== false) {
             $request->setParameter('includeArchived', 'true');
+        }
+
+        if ($this->invoiceNumbers !== null) {
+            $request->setParameter('InvoiceNumbers', $this->invoiceNumbers);
         }
 
         $request->send();
